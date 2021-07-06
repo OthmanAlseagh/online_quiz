@@ -1,0 +1,142 @@
+
+
+    *{margin: 0;padding: 0;}
+    
+    body{
+  		background-color: #e2d3b6;  
+  	}
+  	header{
+  		background:url("../photo/Student.jpg") center ;
+		background-size: cover;
+		height: 560px;
+  	}
+    input, button, select, textarea{
+      background-color: #15b9d5;
+      border-radius: 40px;
+    }
+    nav{
+      float: right;
+      color: black;
+      display: inline-block;
+      color: #777;
+      margin-left: 10px;
+      padding-right: 130px;
+      margin-top: -40px;
+    }
+    .one{
+      margin-left: 30px;
+    }
+    }
+    .two{
+      margin-right: 500px;
+    }
+    h2{
+      text-align: center;
+      margin-left: 400px;
+      padding-right: 400px;
+      margin-top: -46px;
+      color: #0275d8;
+    }
+    ................................................................................
+    ul { 
+  margin: 2px 17px 22px 0px;
+}
+
+ul li { 
+  list-style-type: circle;
+  margin: 0 0 6px 0; 
+  padding: 0 5px 4px 0px;
+  line-height: 1.5em;
+}
+
+#site_content { 
+  width: 940px;
+  overflow: hidden;
+margin-right: 50px;
+  padding: 20px 0px 15px 42px;
+
+} 
+/* Image Transitions */
+ul#images {
+margin-right: 50px;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+ul#images li {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  float: left;
+  width: 120px;
+  height: 300px;
+}
+h1{
+  text-align: center;
+   margin-left: 350px;
+   padding-right: 350px;
+    margin-top: -45px;
+    color:  #0275d8;
+    
+}
+   
+    .numberQ{
+      background-color: #466c1a;
+      border-radius: 10px; 
+      height:40px;
+      margin-left: 390px;
+      text-align: center;
+    }
+    .nav{
+      color: #777;
+      margin-top: -40px;
+      float: right;
+      margin-right: 90px;
+    }
+    a{
+      margin-right: 15px;
+    }
+    input, button, select, textarea{
+      background-color: #8f8b8c;
+      border-radius: 40px;
+    }
+    .btn-group > .btn, 
+    .btn-group-vertical > .btn{
+      border-radius: 15px;
+      border-color:#17270c ;
+      border-width: 2px; 
+    }
+    .input-group .form-control{
+      border-radius: 15px;
+      text-align :right;
+      margin-bottom: 20px;
+    }
+    .input .form-control{
+      text-align: right;
+       background-color: #15b9d5;
+       border-color: #ec7811;
+       border-radius: 15px;
+       height: 75px;
+       border-width: 5px;
+    }
+    .contener{
+      padding-right: 100px;
+    }
+    thead {
+      background-color: #3a505e;
+      text-align: center;
+    }
+    th{
+      text-align: center;
+    }
+    tbody{
+      background-color: #6990a9;
+      text-align: center;
+    }
+    footer{
+      position: center;
+      margin-left: 210px;
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }

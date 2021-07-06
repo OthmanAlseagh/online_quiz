@@ -1,0 +1,42 @@
+<style>
+         
+         *{margin: 0;padding: 0;}
+  		body{
+  			background: url("../photo/bodylogin.JPG")center;
+			background-size: cover;
+  		}
+		.col-md-12{text-align: right;}
+		.modal-content{ background: #e1e1e1;height: 230px;margin-top:200px;border-radius:14px 14px 0 0;  }
+		.modal-content h3{color: #3a505e;text-align: center;margin-top: 10px;} 
+		.modal-header{text-align: center; }
+		.modal-header input{
+			border: 0px;
+			background: #cacaca;
+			font-family:  Ubuntu; 
+			padding:  14px 14px;
+			width:  340px;
+			border-radius: 20px;
+			text-align: right;
+		}
+
+		.modal-footer { background: #b0c9d0;height: 100px; border-radius: 0 0 14px 14px;}
+		.modal-footer button{ font:15px Ubuntu;margin-right: 100px; background: #3a505e;color: #ffffff; border-radius: 20px;}
+		 #fr {text-align: right;color:#ffffff; font: 14px ;font-family:fantasy;}
+		------------------------------------------------------------------------------------------------------------------------
+		         *{margin: 0;padding: 0;}
+		.modal-content1{ background: #e1e1e1;width: 420px; height: 400px;margin-top:140px;border-radius:14px 14px 0 0;}
+		.modal-content1 h3{color: #3a505e;text-align: center;margin-top: 50px;} 
+		.modal-header1{text-align: center; margin-bottom: 10px; }
+		.modal-header1 input{
+			border: 0px;
+			background: #cacaca;
+			font-family:  Ubuntu; 
+			padding:  14px 14px;
+			border-radius: 20px;
+			width: 400px;
+			text-align: right;
+		}
+
+		.modal-footer1 { background: #b0c9d0;width: 420px; height:90px; border-radius: 0 0 14px 14px;}
+		.modal-footer1 button{ font:15px Ubuntu;margin-right: 350px; background: #3a505e;color: #ffffff; border-radius: 20px; margin-top: 15px;}
+</style>

@@ -1,0 +1,146 @@
+
+
+    *{margin: 0;padding: 0;}
+    
+    body{
+      background-color: #e1e1e1;  
+    }
+    header{
+      background:url("../photo/Teatcher0.jpg") center ;
+    background-size: cover;
+    height: 300px;
+    }
+    .Exit{
+      margin-left: 50px;
+    }
+    .label1{
+      margin-left:250px;
+      line-height: 30px;
+    }
+    .timeStar{
+      background-color: #cacaca;
+      border-radius: 10px;
+      border-color: #3a505e;
+      height:35px;
+      width: 150px;
+      float: left;
+      text-align: center;
+      margin-left: -230px;
+    }
+    .label2{
+      margin-left: -300px;
+      line-height: 30px;
+    }
+    .timeEnd{
+      background-color: #cacaca;
+      border-radius: 10px;
+      border-color: #3a505e;
+      height:35px;
+      width: 150px;
+      margin-left: 80px;
+      text-align: center
+
+    }
+    .numberQ{
+      background-color: #cacaca;
+      border-radius: 10px;
+      border-color: #3a505e;
+      height:35px;
+      width: 150px;
+      margin-left: 370px;
+      text-align: center;
+    }
+    .nav {
+      margin-top: -40px;
+      float: right;
+      margin-right: 100px; 
+    }
+    .btn-primary{
+      background-color: #8f8b8c;
+      border-color: #3a505e; 
+      border-width: 2px;
+      line-height: 10px; 
+    }
+    .selectpicker{
+      width: 150px;
+      height: 35px;
+      border-radius: 5px;
+      margin-left: 550px;
+      margin-top: 25px;
+      text-align: center;
+      outline-width: 5px;
+    }
+    a{
+      margin-right: 15px;
+      height: 30px;
+    }
+    input, button, select, textarea{
+      background-color: #8f8b8c;
+      border-radius: 40px;
+      height: 75px;
+    }
+    .btn-group > .btn, 
+    .btn-group-vertical > .btn{
+      border-radius: 15px;
+      border-color:#17270c ;
+      border-width: 2px; 
+    }
+    .input-group .form-control{
+      border-radius: 15px;
+      text-align :center;
+      margin-bottom: 20px;
+      background-color: #cacaca;
+      border-color: #3a505e;
+      height: 50px;
+    }
+    .input .form-control{
+      text-align: right;
+       background-color: #cacaca;
+       border-color: #3a505e;
+       border-radius: 15px;
+       height: 75px;
+       border-width: 3px;
+    }
+    .contener{
+      padding-left: 180px;
+      padding-top: 10px;
+    }
+    .btn-outline-info{
+      height: 35px;
+      margin-left: -550px;
+    }
+    footer{
+      padding-left: 500px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    .table{
+      padding-left: 100px;
+      border-color: #b0c9d0;
+      width: 90%;
+    }
+    * table{
+
+      margin-left: 50px;
+    }
+    .thead-default th{
+      background-color: #b0c9d0;
+      text-align: center;
+    }
+    tbody{
+      background-color: #cacaca;
+      border-color: #b0c9d0;
+      text-align: center;
+    }
+    h3{
+      margin-left: 430px;
+      margin-bottom: 10px;
+    }
+    
+    .subjectname{
+      margin-left: 600px;
+      margin-top:-40px;
+      background-color: #b0c9d0;
+
+
+    }

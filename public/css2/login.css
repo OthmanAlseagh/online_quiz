@@ -1,0 +1,55 @@
+<style>
+         
+         *{margin: 0;padding: 0;}
+  		body{
+  			background: url("photo/bodylogin.jpg");
+			background-size: cover;
+  		}
+  		.navbar-default{
+            background-color: #b0c9d0;
+            }
+		.col-md-12{text-align: right;}
+		/*.modal-content{ background-color:#e1e1e1;height: 230px;margin-top:150px;width: 370px; border-radius:14px 14px 0 0;}*/
+		form{width: 370px;}
+		.modal-content{background-color:#e1e1e1;height:190px;margin-top: 150px;width: 370px; border-radius: 14px 14px 0px 0px;}
+		.modal-content h3{color: #3a505e;text-align: center;margin-top: 10px;} 
+		.modal-header input{
+			border: 0px;
+			background-color: #cacaca;
+			font-family:  Ubuntu; 
+			padding:  14px 14px;
+			width:  340px;
+			border-radius: 20px;
+			text-align: right;
+		}
+
+		.modal-footer { box-shadow: 0 5px 15px rgba(0,0,0,.5); background-color: #b0c9d0;height: 110px;width: 368px;margin-top: 5px;border-radius: 0 0 14px 14px;}
+		.modal-footer span input{ font:15px Ubuntu;margin-right:300px;width:100px; background: #3a505e;color: #ffffff; border-radius: 20px;}
+		 #fr {text-align: right;color:#ffffff; font: 14px ;font-family:fantasy; margin-top: 10px;}
+		------------------------------------------------------------------------------------------------------------------------
+		         *{margin: 0;padding: 0;}
+		.modal-content1{ box-shadow: 0 5px 15px rgba(0,0,0,.5);background-color: #e1e1e1;height: 380px;margin-top:80px;width: 430px; border-radius:14px 14px 0 0;}
+		.modal-content1 h3{color: #3a505e;text-align: center;margin-top: 50px;padding-top: 15px;} 
+		.modal-header1{height: 30px; margin-left : 15px;margin-bottom: 10px;padding-top: 5px;}
+		.modal-header1 select{
+			border: 0px;
+			background: #cacaca;
+			font-family:  Ubuntu; 
+			padding:  4px 4px;
+			border-radius: 20px;
+			width: 400px;
+			text-align: right;
+		}
+		.modal-header1 input{
+			border: 0px;
+			background: #cacaca;
+			font-family:  Ubuntu; 
+			padding:  14px 14px;
+			border-radius: 20px;
+			width: 400px;
+			text-align: right;
+		}
+
+		.modal-footer1 { box-shadow: 0 5px 15px rgba(0,0,0,.5);background: #b0c9d0;width: 430px; height:90px; border-radius: 0 0 14px 14px;padding-top: 15px;padding-left: 10px;}
+		.modal-footer1 input{ font:20px Ubuntu;margin-right: 330px; background: #3a505e;color: #ffffff; border-radius: 20px; margin-top: 10px;width: 60px; height: 40px;}
+</style>
