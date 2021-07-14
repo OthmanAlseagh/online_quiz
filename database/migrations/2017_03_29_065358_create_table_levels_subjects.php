@@ -27,6 +27,6 @@ class CreateTableLevelsSubjects extends Migration
      */
     public function down()
     {
-        Schema::drop('levels_subjects');
+        Schema::dropIfExists('levels_subjects');
     }
 }

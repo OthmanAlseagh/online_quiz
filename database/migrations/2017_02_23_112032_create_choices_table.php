@@ -14,9 +14,9 @@ class CreateChoicesTable extends Migration
     {
         Schema::create('choices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('questions_id')->reference('id')->on('questions');
-            $table->string('choice1');
-            $table->string('choice2');
+            $table->integer('question_id');
+            $table->string('first_choice');
+            $table->string('second_choice');
             $table->timestamps();
             
         });
@@ -29,6 +29,6 @@ class CreateChoicesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('choices');
+        Schema::dropIfExists('choices');
     }
 }

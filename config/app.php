@@ -148,7 +148,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
-        Reliese\Coders\CodersServiceProvider::class,
 
 
         /*
