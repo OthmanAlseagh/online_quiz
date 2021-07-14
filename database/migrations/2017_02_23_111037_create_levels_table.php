@@ -27,6 +27,6 @@ class CreateLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('levels');
+        Schema::dropIfExists('levels');
     }
 }
