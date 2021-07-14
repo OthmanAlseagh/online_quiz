@@ -14,9 +14,9 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('users_id')->reference('id')->on('users');
-            $table->integer('questions_id')->reference('id')->on('questions');
-            $table->string('chosed_answer');
+            $table->integer('user_id');
+            $table->integer('question_id');
+            $table->string('chosen_answer');
             $table->timestamps();
             
         });
@@ -29,6 +29,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('answers');
+        Schema::dropIfExists('answers');
     }
 }

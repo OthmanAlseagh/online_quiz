@@ -16,7 +16,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->text('question');
             $table->string('correct_choice');
-            $table->integer('quizzes_id')->reference('id')->on('quizzes');
+            $table->integer('quiz_id');
             $table->timestamps();
             
         });
@@ -29,6 +29,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('questions');
+        Schema::dropIfExists('questions');
     }
 }
