@@ -1,53 +1,66 @@
 <?php
 
-use App\Http\Controllers\WelcomeController;
+
+use App\Http\Controllers\WEB\AdminController;
+use App\Http\Controllers\WEB\ForgotPasswordController;
+use App\Http\Controllers\WEB\LoginController;
+use App\Http\Controllers\WEB\PagesController;
+use App\Http\Controllers\WEB\RegistrationController;
+use App\Http\Controllers\WEB\StudentController;
+use App\Http\Controllers\WEB\TeacherController;
+
+Route::get('/home', [PagesController::class, 'home']);
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'admin']);
+    Route::get('/users', [AdminController::class, 'users']);
+});
 
 
-Route::get('/home','pages_controller@home');
-Route::get('/admin','adminController@admin')->middleware('administrator');
-Route::get('/users','adminController@users')->middleware('administrator');
+Route::middleware(['student'])->group(function () {
+    Route::get('/student', [StudentController::class, 'student']);
+    Route::get('/StudentResulte', [StudentController::class, 'results']);
+    Route::get('/Quraan', [PagesController::class, 'quraan']);
+    Route::get('/Islamic', [PagesController::class, 'islamic']);
+    Route::get('/Arabic', [PagesController::class, 'arabic']);
+    Route::post('/Arabic', [PagesController::class, 'postaddanswers']);
+    Route::get('/English', [PagesController::class, 'english']);
+    Route::get('/Sciences', [PagesController::class, 'sciences']);
+    Route::get('/Social_Studies', [PagesController::class, 'social_studies']);
+    Route::get('/Mathematics', [PagesController::class, 'mathematics']);
+});
 
 
-Route::get('/student','studentController@student')->middleware('student');
-Route::get('/StudentResulte','studentController@results')->middleware('student');
-Route::get('/Quraan','pages_controller@quraan')->middleware('student');
-Route::get('/Islamic','pages_controller@islamic')->middleware('student');
-Route::get('/Arabic','pages_controller@arabic')->middleware('student');
-Route::post('/Arabic','pages_controller@postaddanswers')->middleware('student');
-Route::get('/English','pages_controller@english')->middleware('student');
-Route::get('/Sciences','pages_controller@sciences')->middleware('student');
-Route::get('/Social_Studies','pages_controller@social_studies')->middleware('student');
-Route::get('/Mathematics','pages_controller@mathematics')->middleware('student');
+Route::get('/register', [RegistrationController::class, 'showRegistrationForm']);
+Route::post('/register', [RegistrationController::class, 'register']);
+Route::get('/addTeatcher', [RegistrationController::class, 'addTeatcher']);
+Route::post('/addTeatcher', [RegistrationController::class, 'postaddTeatcher']);
+Route::get('/addSudent', [RegistrationController::class, 'addSudent']);
+Route::post('/addSudent', [RegistrationController::class, 'postaddSudent']);
+Route::get('/login', [LoginController::class, 'showLoginPage']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotpassword']);
+Route::post('/forgot-passwor', [ForgotPasswordController::class, 'postForgotPassword']);
+Route::get('/activte/{email}/{activationCode}', [ActivationController::class, 'activate']);
+
+Route::get('/delete/{id}/{role_id}/delete', [AdminController::class, 'delete']);
+Route::get('/admin/{uedit}/{activedit}/edit', [AdminController::class, 'edit']);
+Route::post('/admin/{uid}/{id}/update', [AdminController::class, 'update']);
 
 
-Route::get('/register','registerController@register');
-Route::post('/register','registerController@postregister');
-Route::get('/addTeatcher','registerController@addTeatcher');
-Route::post('/addTeatcher','registerController@postaddTeatcher');
-Route::get('/addSudent','registerController@addSudent');
-Route::post('/addSudent','registerController@postaddSudent');
-Route::get('/login','loginControleer@log');
-Route::post('/login','loginControleer@postlog');
-Route::post('/logout','loginControleer@logout');
-Route::get('/forgot-password','ForgotPasswordController@forgotpassword');
-Route::post('/forgot-passwor','ForgotPasswordController@postForgotPassword');
-Route::get('/activte/{email}/{activationCode}','activationController@activate');
+Route::middleware(['teacher'])->group(function () {
+    Route::post('/teacher', [TeacherController::class , 'addquiz']);
+    Route::post('/teacher1', [TeacherController::class , 'addquision']);
+    Route::get('/markteacherA', [TeacherController::class , 'markteacherA']);
+    Route::get('/teacher', [TeacherController::class , 'teacher']);
+    Route::get('/teacherquraan', [TeacherController::class , 'teacherquraan']);
 
-Route::get('/delete/{id}/{role_id}/delete','adminController@delete');
-Route::get('/admin/{uedit}/{activedit}/edit','adminController@edit');
-Route::post('/admin/{uid}/{id}/update','adminController@update');
-
-
-Route::post('/teacher','teacherController@addquiz')->middleware('teacher');
-Route::post('/teacher1','teacherController@addquision')->middleware('teacher');
-Route::get('/markteacherA','teacherController@markteacherA')->middleware('teacher');
-Route::get('/teacher','teacherController@teacher')->middleware('teacher');
-Route::get('/teacherquraan','teacherController@teacherquraan')->middleware('teacher');
-
-Route::get('/delete/{id_qui}/delete','teacherController@delete')->middleware('teacher');
+    Route::delete('/delete/{id_qui}/delete', [TeacherController::class , 'delete']);
 //Route::get('/teacher/{questio}','teacherController@teacher');
 //Route::get('/teacher','teacherController@time')->middleware('teacher');
 //Route::get('/teacher','teacherController@Arabic');
+
+});
 
 
 
