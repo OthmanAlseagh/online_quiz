@@ -47,9 +47,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if (App::environment('production')||App::environment('local')) {
-            return $this->getJsonResponseForException($request, $exception);
-        }
+//        if ( env('APP_STACK' ) !== 'web')
+//            {
+                if (App::environment('production') || App::environment('local')) {
+                    return $this->getJsonResponseForException($request, $exception);
+                }
+//            }
         return parent::render($request, $exception);
     }
 }
