@@ -1,0 +1,105 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Requests;
+use DummyRootNamespaceHttp\Controllers\Controller;
+
+use DummyRootNamespace{{modelNamespace}}{{modelName}};
+use Illuminate\Http\Request;
+
+class DummyClass extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+if ($request->has('list') && $request->list == true) {
+            ${{crudName}} = {{modelName}}sListResource::collection({{modelName}}::all());
+
+            return sendResponse(__('messages.get_data'), ['{{crudName}}' => ${{crudName}}]);
+        }
+
+        if ($request->has('per_page')) {
+            $per_page = $request->per_page;
+        }
+
+        ${{crudName}} = {{modelName}}::query();
+
+        if ($request->has('search_text')) {
+            $search_text = $request->search_text;
+            ${{crudName}}->where('', 'like',"%{$search_text}%");
+        }
+
+        $sort = $request->sort ?? 'asc';
+        $orderBy = $request->orderBy ?? 'id';
+
+        ${{crudName}} = {{modelName}}sResource::collection(${{crudName}}->orderBy($orderBy, $sort)->paginate($per_page ?? 10))->appends($request->query())->toArray();
+
+         ${{crudName}}_array = ${{crudName}}['data'];
+         unset(${{crudName}}['data']);
+         ${{crudName}}['{{crudName}}'] = ${{crudName}}_array;
+
+         return sendResponse(__('messages.get_data'), ${{crudName}});
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Requests\{{modelName}}Request $request)
+    {
+        ${{crudNameSingular}} = {{modelName}}::create($request->only((new {{modelName}}())->getFillable());
+
+        return response()->json({{modelName}}Resource(${{crudNameSingular}}), 201);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{modelName}} ${{crudNameSingular}})
+    {
+        return response()->json({{modelName}}Resource(${{crudNameSingular}}), 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Requests\{{modelName}}Request $request, {{modelName}} ${{crudNameSingular}})
+    {
+        {{validationRules}}
+
+        ${{crudNameSingular}}->update($request->only((new {{modelName}}())->getFillable());
+
+        return response()->json({{modelName}}Resource(${{crudNameSingular}}), 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Requests\{{modelName}}Request $request)
+    {
+        {{modelName}}::destroy($request->ids);
+
+        return response()->json(null, 204);
+    }
+}
