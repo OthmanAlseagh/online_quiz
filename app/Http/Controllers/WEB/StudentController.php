@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,7 +13,7 @@ use App\User;
 use DB;
 use Sentinel;
 
-class studentController extends Controller
+class StudentController extends Controller
 {
     /*public function __construct(){
 		$this->middleware('auth');*/

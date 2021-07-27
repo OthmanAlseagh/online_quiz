@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,13 +10,13 @@ use Cartalyst \Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst \Sentinel\Checkpoints\NotActivatedException;
 Use Sentinel;
 
-class loginControleer extends Controller
+class LoginController extends Controller
 {
-    public function log(){
+    public function showLoginPage(){
 
     	return view ('authentication.login');
     }
-    public function postlog(Request $request )
+    public function login(Request $request )
     {  
                
         try {
