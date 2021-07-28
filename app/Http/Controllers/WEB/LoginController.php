@@ -3,63 +3,54 @@
 namespace App\Http\Controllers\WEB;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use Cartalyst \Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst \Sentinel\Checkpoints\NotActivatedException;
-Use Sentinel;
+use App\Http\Resources\LoginResource;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function showLoginPage(){
 
-    	return view ('authentication.login');
-    }
-    public function login(Request $request )
-    {  
-               
-        try {
-             $rememberMe=false;
-             if (isset($request->remmber_me)) 
-                $rememberMe=true;
-                 
-             
-            if ( Sentinel::authenticate($request->all(),$rememberMe)) {
+    public function login(Requests\LoginRequest $request)
+    {
 
-            Sentinel::check();
-            if(Sentinel::getUser()->roles()->first()->slug=='admin')
-            return redirect('/admin');
+        $credentials = $request->only(['email', 'password']);
 
-            if(Sentinel::getUser()->roles()->first()->slug=='teacher')
-            return redirect('/teacher');            
-            
-            if(Sentinel::getUser()->roles()->first()->slug=='student')
-            return redirect('/student');            
+        if (Auth::attempt($credentials)) {
 
-    }
-            # code...
-        else{
-                
-                  return redirect()->back()->with(['error'=>'البريد الإلكتوني أو كلمة المرور غير صحيحين']);
+            $user = Auth::user();
+
+            if (!$user->hasVerifiedEmail()) {
+
+                return sendError(__('auth.verify_email'), null, 403);
+
+            }
+
+            $tokenResult = $user->createToken('Personal Access Token');
+
+            $token = $tokenResult->token;
+
+            if ($request->remember_me) {
+                $token->expires_at = Carbon::now()->addWeeks(1);
+            }
+
+            $token->save();
+
+            $user['tokenResult'] = $tokenResult;
+
+            return sendResponse(__('auth.success_login'), LoginResource::make($user));
         }
-        
-         
-            
-        } catch (ThrottlingException $e) {
-            $delay=$e->getDelay();
 
-            return redirect()->back()->with(['error'=>'لقد خطيت عددمرات المحاولة المسموح بها'. $delay.'تانيه']);
-        }catch(NotActivatedException $e){
+        return sendError(__('auth.failed'), null, 401);
 
-             return redirect()->back()->with(['error'=>'Yor are not Activated']);
-        }}
-        
+    }
+
 
     public function logout()
     {
+        $token = auth()->guard('api')->user()->token();
+        $token->revoke();
 
-    	Sentinel::logout();
-    	return redirect('/login');
-    } 
+        return sendResponse(__('auth.logout'), null, 204);
+    }
 }
