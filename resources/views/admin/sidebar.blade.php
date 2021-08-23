@@ -10,6 +10,9 @@
                     <a href="{{ url('/admin') }}">
                         Dashboard
                     </a>
+                    <a href="{{ url('/teachers') }}">
+                        Teachers
+                    </a>
                 </li>
             </ul>
         </div>
