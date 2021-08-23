@@ -16,7 +16,7 @@ Route::middleware(['admin'])->group(function () {
 });
 
 
-Route::middleware(['student'])->group(function () {
+Route::middleware([])->group(function () {
     Route::get('/student', [StudentController::class, 'student']);
     Route::get('/StudentResulte', [StudentController::class, 'results']);
     Route::get('/Quraan', [PagesController::class, 'quraan']);
@@ -36,8 +36,8 @@ Route::get('/addTeatcher', [RegistrationController::class, 'addTeatcher']);
 Route::post('/addTeatcher', [RegistrationController::class, 'postaddTeatcher']);
 Route::get('/addSudent', [RegistrationController::class, 'addSudent']);
 Route::post('/addSudent', [RegistrationController::class, 'postaddSudent']);
-Route::get('/login', [LoginController::class, 'showLoginPage']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('login', [LoginController::class, 'showLoginPage']);
+Route::post('login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotpassword']);
 Route::post('/forgot-passwor', [ForgotPasswordController::class, 'postForgotPassword']);
@@ -48,7 +48,7 @@ Route::get('/admin/{uedit}/{activedit}/edit', [AdminController::class, 'edit']);
 Route::post('/admin/{uid}/{id}/update', [AdminController::class, 'update']);
 
 
-Route::middleware(['teacher'])->group(function () {
+Route::middleware([])->group(function () {
     Route::post('/teacher', [TeacherController::class , 'addquiz']);
     Route::post('/teacher1', [TeacherController::class , 'addquision']);
     Route::get('/markteacherA', [TeacherController::class , 'markteacherA']);
