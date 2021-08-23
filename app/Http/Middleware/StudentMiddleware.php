@@ -16,9 +16,6 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::Check()&&Sentinel::getUser()->roles()->first()->slug=='student')
-        return $next($request);
-    else
-        return redirect ('/home');
+
     }
 }
