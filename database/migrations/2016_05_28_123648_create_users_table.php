@@ -17,9 +17,15 @@ class CreateUsersTable extends Migration
             $table->uuid('id')->unique();
             $table->string('full_name')->nullable();
             $table->string('email')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone')->nullable();
-            $table->string('type')->nullable();
-            $table->string('logo')->nullable();
+            $table->uuid('school_id')->nullable();
+            $table->boolean('is_active')->default(false);
+            $table->string('avatar')->nullable();
+            $table->boolean('active')->default(false);
+            $table->string('activation_token')->nullable();
+            $table->string('password')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
