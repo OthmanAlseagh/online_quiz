@@ -8,23 +8,15 @@ use Illuminate\Support\Facades\Auth;
 class Authenticate
 {
     /**
-     * Handle an incoming request.
+     * Get the path the user should be redirected to when they are not authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
+     * @return string
      */
-    public function handle($request, Closure $next, $guard = null)
+    protected function redirectTo($request)
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('login');
-            }
+        if (! $request->expectsJson()) {
+            return route('login');
         }
-
-        return $next($request);
     }
 }

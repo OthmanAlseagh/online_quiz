@@ -1,4 +1,4 @@
-@extends('lyout.page_master')
+@extends('layout.page_master')
 
 
 @section('content')

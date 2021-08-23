@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use App\User;
+use App\Models\User;
 
-class activationController extends Controller
+class ActivationController extends Controller
 {
     public function activate(Request $request)
    {

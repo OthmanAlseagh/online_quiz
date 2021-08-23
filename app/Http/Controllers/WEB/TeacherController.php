@@ -1,15 +1,16 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Question;
-use App\Quiz;
-use App\Choice;
-use App\Subject;
+use App\Models\Question;
+use App\Models\Quiz;
+use App\Models\Choice;
+use App\Models\Subject;
 use DB;
 
 
-class teacherController extends Controller
+class TeacherController extends Controller
 {
    
     public function teacher(){

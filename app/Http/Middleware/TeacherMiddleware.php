@@ -16,10 +16,6 @@ class TeacherMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::check()&& Sentinel::getUser()->roles()->first()->slug=='teacher')
-        return $next($request);
 
-    else
-        return redirect('/home');
     }
 }

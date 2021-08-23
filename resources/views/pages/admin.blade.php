@@ -1,5 +1,5 @@
 
-@extends('lyout.top_menu')
+@extends('layout.top_menu')
 
 
 @section('content')
@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
+                @include('admin.dashboard')
                 <div class="panel-heading">Teachers List</div>
                     <div class="panel-body">
                         <table class="table">

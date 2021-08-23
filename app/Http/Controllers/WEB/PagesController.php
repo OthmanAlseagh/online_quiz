@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,7 +14,7 @@ use App\Quiz;
 use Sentinel;
 
 
-class pages_controller extends Controller
+class PagesController extends Controller
 {
     public function home (){
     	return view ('lyout.top_menu');
