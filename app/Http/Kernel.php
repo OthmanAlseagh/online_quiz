@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \Fruitcake\Cors\HandleCors::class,
     ];
 
     /**
@@ -32,6 +33,8 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            \App\Http\Middleware\ForceApiResponse::class,
+            \Fruitcake\Cors\HandleCors::class,
             'throttle:60,1',
         ],
     ];
@@ -49,8 +52,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin'=>\App\Http\Middleware\AdminMiddleware::class,
-        'teacher'=>\App\Http\Middleware\TeacherMiddleware::class,
-        'student'=>\App\Http\Middleware\StudentMiddleware::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
     ];
 }
