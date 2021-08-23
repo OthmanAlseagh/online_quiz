@@ -5,10 +5,13 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.2.5",
+        "php": "^8.0",
+        "emadadly/laravel-uuid": "1.2.1.x-dev",
+        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
-        "laravel/passport": "^10.1"
+        "laravel/passport": "^10.1",
+        "spatie/laravel-permission": "^4.2"
     },
     "require-dev": {
         "appzcoder/crud-generator": "^3.2",
@@ -25,7 +28,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/ApiResponse.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
