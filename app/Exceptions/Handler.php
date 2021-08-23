@@ -13,6 +13,9 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+
+    use ExceptionTrait;
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -30,7 +33,7 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $e
+     * @param \Exception $e
      * @return void
      */
     public function report(Throwable $exception)
@@ -41,18 +44,15 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception $e
      * @return \Illuminate\Http\Response
      */
     public function render($request, Throwable $exception)
     {
-//        if ( env('APP_STACK' ) !== 'web')
-//            {
-                if (App::environment('production') || App::environment('local')) {
-                    return $this->getJsonResponseForException($request, $exception);
-                }
-//            }
+        if (App::environment('production') || App::environment('local')) {
+            return $this->getJsonResponseForException($request, $exception);
+        }
         return parent::render($request, $exception);
     }
 }
