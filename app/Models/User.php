@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $keyType = 'string';
 
@@ -36,6 +37,8 @@ class User extends Model
      */
     protected $primaryKey = 'id';
 
+    protected $guard_name = 'api';
+
     /**
      * Attributes that should be mass-assignable.
      *
@@ -46,7 +49,18 @@ class User extends Model
         'email',
         'phone',
         'type',
-        'logo',
+        'avatar',
+        'is_active',
+        'school_id',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 
     public function levels()
