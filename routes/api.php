@@ -2,10 +2,12 @@
 
 
 use App\Http\Controllers\API\LoginController;
+use App\Http\Controllers\API\RegistrationController;
 
-//Route::middleware('api')->group(function () {
+Route::prefix('api/')->group(function () {
     Route::post('login', [LoginController::class, 'login']);
-//});
+    Route::post('register', [RegistrationController::class, 'register']);
+});
 
 
 
