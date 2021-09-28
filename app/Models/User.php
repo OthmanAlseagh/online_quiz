@@ -2,17 +2,19 @@
 
 namespace App\Models;
 
+use Emadadly\LaravelUuid\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Uuids, HasRoles;
 
     protected $keyType = 'string';
 
@@ -48,7 +50,6 @@ class User extends Authenticatable
         'full_name',
         'email',
         'phone',
-        'type',
         'avatar',
         'is_active',
         'school_id',
