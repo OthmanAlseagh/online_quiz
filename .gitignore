@@ -1,0 +1,15 @@
+
+.env
+
+.idea/
+
+*.cache
+
+bootstrap/cache/
+
+node_modules/.bin/
+
+node_modules/
+vendor
+storage/logs
+storage/framework
